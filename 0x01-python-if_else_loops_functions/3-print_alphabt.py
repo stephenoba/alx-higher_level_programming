@@ -5,6 +5,5 @@ prints the ASCII alphabet except 'e' and 'q',
 in lowercase, not followed by a new line
 """
 for char in range(97, 123):
-    if (char == 101) or (char == 113):
-        continue
-    print(f"{chr(char)}", end="")
+    if chr(char) is not 'e' and chr(char) is not 'q':
+        print(f"{chr(char)}", end="")
