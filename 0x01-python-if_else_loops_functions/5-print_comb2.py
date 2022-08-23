@@ -1,9 +1,4 @@
 #!/usr/bin/python3
-
-"""
-prints numbers from 0 - 99 seperated by ', '
-with padding
-"""
 for num in range(100):
     if num == 99:
         print("{}".format(num))
