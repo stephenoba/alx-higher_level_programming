@@ -8,4 +8,4 @@ for num in range(100):
     if num is 99:
         print(num)
     else:
-        print(f"{num:{0}{2}}", end=", ")
+        print("{}".format(str(num).zfill(2)), end=", ")
