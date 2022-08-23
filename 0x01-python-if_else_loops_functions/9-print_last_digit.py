@@ -4,5 +4,5 @@ def print_last_digit(number):
         number = (number * -1) % 10
     else:
         number = number % 10
-    print(number)
+    print(number, end="")
     return number
