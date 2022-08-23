@@ -6,4 +6,4 @@ in lowercase, not followed by a new line
 """
 for char in range(97, 123):
     if chr(char) is not 'e' and chr(char) is not 'q':
-        print(f"{chr(char)}", end="")
+        print("{}".format(chr(char)), end="")
