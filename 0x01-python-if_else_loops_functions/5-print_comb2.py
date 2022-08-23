@@ -6,6 +6,6 @@ with padding
 """
 for num in range(100):
     if num is 99:
-        print(num)
+        print("{}".format(num))
     else:
         print("{}".format(str(num).zfill(2)), end=", ")
