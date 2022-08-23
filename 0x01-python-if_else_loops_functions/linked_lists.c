@@ -57,44 +57,6 @@ listint_t *add_nodeint_end(listint_t **head, const int n)
 }
 
 /**
- * insert_node - inserts a node in a sorted list
- * @head: head
- * @number: data of the node
- *
- * Return: address of the inserted node
- */
-listint_t *insert_node(listint_t **head, int number)
-{
-	listint_t *new;
-	listint_t *temp;
-
-	temp = *head;
-	new = malloc(sizeof(listint_t));
-	if (!new)
-		return (NULL);
-	new->n = number;
-	if (*head == NULL)
-	{
-		*head = new;
-		new->next = temp;
-	}
-	else
-	{
-		while (temp->next)
-		{
-			if (temp->next->n > number)
-			{
-				new->next = temp->next;
-				temp->next = new;
-				break;
-			}
-			temp = temp->next;
-		}
-	}
-	return (new);
-}
-
-/**
  * free_listint - frees a listint_t list
  * @head: pointer to list to be freed
  * Return: void
