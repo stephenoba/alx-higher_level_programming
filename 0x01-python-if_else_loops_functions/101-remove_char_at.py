@@ -6,5 +6,3 @@ def remove_char_at(str, n):
             continue
         new_str += str[i]
     return new_str
-
-print(remove_char_at("Steven", 2))
