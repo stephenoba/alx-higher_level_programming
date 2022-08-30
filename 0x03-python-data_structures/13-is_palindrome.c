@@ -1,4 +1,5 @@
 #include "lists.h"
+#include <stdio.h>
 
 /**
  * add_to_start - add node to start of a linked list
@@ -9,7 +10,7 @@
  */
 listint_t *add_to_start(listint_t **head, int n)
 {
-	listint_t *temp, *new;
+	listint_t *new;
 
 	new = malloc(sizeof(listint_t));
 	if (!new)
@@ -33,10 +34,10 @@ listint_t *reverse_list(listint_t *head, size_t mid)
 	size_t i = 0;
 
 	new_head = NULL;
-	while (i != mid)
+	while (i <= mid)
 	{
-		head = head->next;
 		new_head = add_to_start(&new_head, head->n);
+        head = head->next;
 		if (new_head == NULL)
 			exit(-1);
 		i++;
@@ -53,8 +54,8 @@ listint_t *reverse_list(listint_t *head, size_t mid)
 int is_palindrome(listint_t **head)
 {
 	listint_t *temp, *temp2, *head2;
-	int flag;
-	size_t len, mid;
+	int flag = 0;
+	size_t len, mid, start, second_half;
 
 	if (!head)
 	{
@@ -71,17 +72,26 @@ int is_palindrome(listint_t **head)
 	mid = len / 2;
 	head2 = reverse_list(*head, mid);
 	temp2 = head2;
-	while (temp2->next)
+    temp = *head;
+    second_half = len % 2 == 0 ? mid : mid + 1;
+    start = 0;
+	while (start <= len)
 	{
-		if (temp2->n == temp->n)
-		{
-			flag = 1;
+        if (start >= second_half)
+        {
+		    if (temp2->n == temp->n)
+		    {
+			    flag = 1;
+		    }
+		    else
+		    {
+			    flag = 0;
+			    break;
+            }
+            temp2 = temp2->next;
 		}
-		else
-		{
-			flag = 0;
-			break;
-		}
-		temp2 = temp2->next;
+        temp = temp->next;
+        start++;
 	}
+    return (flag);
 }
