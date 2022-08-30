@@ -73,7 +73,7 @@ int is_palindrome(listint_t **head)
 	temp2 = head2;
 	while (temp2->next)
 	{
-		if (temp2->n == temp->next)
+		if (temp2->n == temp->n)
 		{
 			flag = 1;
 		}
