@@ -17,7 +17,7 @@ listint_t *add_to_start(listint_t **head, int n)
 	new->n = n;
 	new->next = *head;
 	*head = new;
-	return new;
+	return (new);
 }
 
 /**
@@ -41,7 +41,7 @@ listint_t *reverse_list(listint_t *head, size_t mid)
 			exit(-1);
 		i++;
 	}
-	return new_head;
+	return (new_head);
 }
 
 /**
