@@ -8,7 +8,7 @@
  *
  * Return: address of newly created node
  */
-listint_t *add_nodeint_start(listint_t **head, const int n)
+listint_t *add_to_start(listint_t **head, int n)
 {
 	listint_t *new;
 
@@ -22,68 +22,27 @@ listint_t *add_nodeint_start(listint_t **head, const int n)
 }
 
 /**
- * get_len - get length of singly linked list
- * @h: head of list
- *
- * Return: length
- */
-size_t get_len(listint_t **h)
-{
-    size_t length = 0;
-    listint_t *temp;
-
-    temp = *h;
-    while (temp)
-    {
-        length++;
-        temp = temp->next;
-    }
-    return (length);
-}
-
-/**
- * split_list - splits a list int two even parts
- * @head: head of list to split
- * @head_one: first new list
- * @head_two: second new list
- * @length: length of original list
+ * reverse_list - reverses a singly linked list to a mid point
+ * @head: head of list to reverse
+ * @mid: mid point of list
  *
  * Return: new list
  */
-int split_list_even(listint_t **head, listint_t **head_one, listint_t **head_two, size_t length)
+listint_t *reverse_list(listint_t *head, size_t mid)
 {
-    listint_t *temp, *temp2, *temp3;
-    size_t mid = length / 2;
-    size_t c = 1;
-    size_t second_half_start = length % 2 == 0 ? mid : mid + 1;
+	listint_t *new_head;
+	size_t i = 0;
 
-    temp = *head;
-    temp2 = *head_one;
-    temp3 = *head_two;
-    while (c <= length)
-    {
-        /* don't add the middle of an odd len */
-        if (length % 2 != 0 && c == mid + 1)
-        {
-            temp = temp->next;
-            c++;
-            continue;
-        }
-        else if (c <= second_half_start)
-        {
-            /* adding to the begining would reverse the list */
-            temp2 = add_nodeint_start(&temp2, temp->n);
-        }
-        else
-        {
-            add_nodeint_end(&temp3, temp->n);
-        }
-        temp = temp->next;
-        c++;
-    }
-    *head_one = temp2;
-    *head_two = temp3;
-    return (c);
+	new_head = NULL;
+	while (i <= mid)
+	{
+		new_head = add_to_start(&new_head, head->n);
+        head = head->next;
+		if (new_head == NULL)
+			exit(-1);
+		i++;
+	}
+	return (new_head);
 }
 
 /**
@@ -94,38 +53,45 @@ int split_list_even(listint_t **head, listint_t **head_one, listint_t **head_two
  */
 int is_palindrome(listint_t **head)
 {
-	listint_t *temp, *temp2, *temp3, *head1, *head2;
+	listint_t *temp, *temp2, *head2;
 	int flag = 0;
-	size_t len;
+	size_t len, mid, start, second_half;
 
-    head1 = NULL;
-    head2 = NULL;
 	if (!head)
 	{
-        return (0);
-    }
+		return (0);
+	}
 	temp = *head;
-	len = get_len(&temp);
-    if (len < 2)
-        return (0);
-    split_list_even(&temp, &head1, &head2, len);
-    temp2 = head1;
-    temp3 = head2;
-    while (temp2)
-    {
-        if (temp2->n == temp3->n)
+	len = 0;
+	while (temp->next)
+	{
+		len++;
+		temp = temp->next;
+	}
+	/* get mid point */
+	mid = len / 2;
+	head2 = reverse_list(*head, mid);
+	temp2 = head2;
+    temp = *head;
+    second_half = len % 2 == 0 ? mid : mid + 1;
+    start = 0;
+	while (start <= len)
+	{
+        if (start >= second_half)
         {
-            flag = 1;
-        }
-        else
-        {
-            flag = 0;
-            
-        }
-        temp2 = temp2->next;
-        temp3 = temp3->next;
-    }
-    free_listint(head1);
-    free_listint(head2);
+		    if (temp2->n == temp->n)
+		    {
+			    flag = 1;
+		    }
+		    else
+		    {
+			    flag = 0;
+			    break;
+            }
+            temp2 = temp2->next;
+		}
+        temp = temp->next;
+        start++;
+	}
     return (flag);
 }
