@@ -93,5 +93,6 @@ int is_palindrome(listint_t **head)
         temp = temp->next;
         start++;
 	}
+    free_listint(head2);
     return (flag);
 }
