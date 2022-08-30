@@ -31,15 +31,15 @@ listint_t *add_to_start(listint_t **head, int n)
 listint_t *reverse_list(listint_t *head, size_t mid)
 {
 	listint_t *new_head;
-	size_t i = 0;
+	size_t i = 1;
 
 	new_head = NULL;
 	while (i <= mid)
-	{
+    {
 		new_head = add_to_start(&new_head, head->n);
         head = head->next;
 		if (new_head == NULL)
-			exit(-1);
+			return (0);
 		i++;
 	}
 	return (new_head);
@@ -55,44 +55,46 @@ int is_palindrome(listint_t **head)
 {
 	listint_t *temp, *temp2, *head2;
 	int flag = 0;
-	size_t len, mid, start, second_half;
+	size_t len, mid, start;
 
 	if (!head)
 	{
 		return (0);
 	}
 	temp = *head;
-	len = 0;
+    if (temp->next == NULL)
+    {
+        return (0);
+    }
+	len = 1;
 	while (temp->next)
 	{
 		len++;
 		temp = temp->next;
 	}
-	/* get mid point */
-	mid = len / 2;
-	head2 = reverse_list(*head, mid);
-	temp2 = head2;
+    mid = len / 2;
     temp = *head;
-    second_half = len % 2 == 0 ? mid : mid + 1;
-    start = 0;
-	while (start <= len)
-	{
-        if (start >= second_half)
-        {
-		    if (temp2->n == temp->n)
-		    {
-			    flag = 1;
-		    }
-		    else
-		    {
-			    flag = 0;
-			    break;
-            }
-            temp2 = temp2->next;
-		}
+    head2 = reverse_list(temp, mid);
+    for (start = 1; start < mid; start++)
+    {
         temp = temp->next;
-        start++;
-	}
+    }
+    if (len % 2 == 0 && temp->n == temp->next->n)
+        return (1);
+    temp2 = head2;
+    temp = temp->next->next;
+    while (temp2)
+    {
+        if (temp2->n == temp->n)
+            flag = 1;
+        else
+        {
+            flag = 0;
+            break;
+        }
+        temp2 = temp->next;
+        temp = temp->next;
+    }
     free_listint(head2);
-    return (flag);
+    return flag;
 }
