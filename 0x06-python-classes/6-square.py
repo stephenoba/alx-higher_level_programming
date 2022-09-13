@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-# 5-square.py
+# 6-square.py
 # Stephen Oba <obastepheno@gmail.com>
 """
 Module provides a class for cresting Square objects
@@ -10,14 +10,17 @@ class Square:
     """
     Square class that defines a square with a size
     """
-    def __init__(self, size=0):
+    def __init__(self, size=0, position=(0, 0)):
         """
         Initialize object
 
         :param size: int, size of square;
           default: 0
+        :param position: position;
+          default: 0
         """
         self.size = size
+        self.position = position
 
     def area(self):
         """
@@ -29,7 +32,7 @@ class Square:
 
     @property
     def size(self):
-        """Get square size"""
+        """get square size"""
         return self.__size
 
     @size.setter
@@ -41,13 +44,30 @@ class Square:
             raise ValueError("size must be >= 0")
         self.__size = value
 
+    @property
+    def position(self):
+        """get position"""
+        return self.__position
+
+    @position.setter
+    def position(self, value):
+        """set position"""
+        if not all(isinstance(x, int) and x >= 0 for x in value):
+            raise TypeError("position must be a tuple of 2 positive integers")
+        self.__position = value
+
     def my_print(self):
         """
         Print a square
         """
         if self.__size == 0:
             print("")
-        for x in range(self.__size):
-            for y in range(self.__size):
-                print("#", end="")
+        for x in range(self.__size + self.__position[1]):
+            for y in range(self.__size + self.__position[0]):
+                if x < self.__position[1]:
+                    break
+                if y < self.__position[0]:
+                    print(" ", end="")
+                else:
+                    print("#", end="")
             print("")

@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-# 2-square.py
+# 3-square.py
 # Stephen Oba <obastepheno@gmail.com>
 """
 Module provides a class for cresting Square objects
