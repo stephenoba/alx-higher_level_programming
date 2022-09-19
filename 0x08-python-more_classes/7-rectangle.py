@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-# 6-rectangle.py
+# 7-rectangle.py
 # Stephen Oba <obastepheno@gmail.com>
 """
 Module defines a Rectangle Class
@@ -25,6 +25,7 @@ class Rectangle:
         compute the perimeter of rectangle
     """
     number_of_instances = 0
+    print_symbol = "#"
 
     def __init__(self, width=0, height=0):
         """
@@ -39,7 +40,7 @@ class Rectangle:
         """
         self.width = width
         self.height = height
-        Rectangle.number_of_instances += 1
+        type(self).number_of_instances += 1
 
     @property
     def width(self):
@@ -102,7 +103,7 @@ class Rectangle:
             return _str
         for i in range(self.__height):
             for j in range(self.__width):
-                _str += "#"
+                _str += str(self.print_symbol)
             if i != self.__height - 1:
                 _str += "\n"
         return _str
