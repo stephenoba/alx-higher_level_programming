@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-# 1-rectangle.py
+# 2-rectangle.py
 # Stephen Oba <obastepheno@gmail.com>
 """
 Module defines a Rectangle Class
@@ -19,7 +19,10 @@ class Rectangle:
 
     Methods
     -------
-    None
+    area
+        compute the area of rectangle
+    perimeter
+        compute the perimeter of rectangle
     """
     def __init__(self, width=0, height=0):
         """
@@ -62,3 +65,29 @@ class Rectangle:
         if value < 0:
             raise ValueError("height must be >= 0")
         self.__height = value
+
+    def area(self):
+        """
+        computes the area of rectangle
+
+        Args:
+            None
+
+        Returns:
+            int: product of width and height
+        """
+        return self.__width * self.__height
+
+    def perimeter(self):
+        """
+        computes the perimeter of rectangle
+
+        Args:
+            None
+
+        Return:
+            int: total sum of all sides or zero if width or heght equal 0
+        """
+        if self.__width == 0 or self.__height == 0:
+            return 0
+        return 2 * (self.__width + self.__height)
