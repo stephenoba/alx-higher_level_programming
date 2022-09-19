@@ -110,4 +110,4 @@ class Rectangle:
 
     def __del__(self):
         """action befor del is called on a rectangle"""
-        print("Bye rectangle... (...")
+        print("Bye rectangle...")
