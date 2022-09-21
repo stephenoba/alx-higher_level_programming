@@ -1,0 +1,42 @@
+The ``3-say_my_name`` module
+======================
+
+Using ``say_my_name``
+-------------------
+
+First import ``say_my_name`` from the ``3-say_my_name`` module:
+
+    >>> say_my_name = __import__("3-say_my_name").say_my_name
+
+Now use it:
+
+Print First and lastname
+    >>> matrix = [[1, 2, 3], [4, 5, 6]]
+    >>> say_my_name("John", "Doe")
+    My name is John Doe
+
+Print only firstname
+    >>> say_my_name("Jay")
+    My name is Jay 
+
+Error when first name is not provided
+    >>> say_my_name(last_name="Bobby")
+    Traceback (most recent call last):
+        ...
+    TypeError: say_my_name() missing 1 required positional argument: 'first_name'
+
+Incorrect Type First name
+    >>> say_my_name(["J", "o", "h", "n"], last_name="Doe")
+    Traceback (most recent call last):
+        ...
+    TypeError: first_name must be a string
+
+Incorrect type last name
+    >>> say_my_name("Jane", last_name=63)
+    Traceback (most recent call last):
+        ...
+    TypeError: last_name must be a string
+
+Empty arguments return an empty string
+    >>> say_my_name("", "")
+    My name is  
