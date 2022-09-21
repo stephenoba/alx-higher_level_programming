@@ -18,6 +18,13 @@ Printing a square of size 2
 Printing a square of size 0
     >>> print_square(0)
 
+printing a suare of size 4
+    >>> print_square(4)
+    ####
+    ####
+    ####
+    ####
+
 Passing a negetive number to print_square
     >>> print_square(-4)
     Traceback (most recent call last):
@@ -35,3 +42,9 @@ Passing a non-integer to print_integer
     Traceback (most recent call last):
         ...
     TypeError: size must be an integer
+
+Passing no arguments to print_square
+    >>> print_square()
+    Traceback (most recent call last):
+        ...
+    TypeError: print_square() missing 1 required positional argument: 'size'
