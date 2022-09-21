@@ -3,6 +3,7 @@
 # Stephen Oba <obastepheno@gmail.com>
 """module provides a function to divide elements in a matrix"""
 
+
 def isvalid_matrix_type(matrix):
     """
     Check if Matrix is valid
@@ -21,6 +22,7 @@ def isvalid_matrix_type(matrix):
             return True
     return False
 
+
 def isvalid_matrix_size(matrix):
     """
     check if all rows are of equal size
@@ -31,11 +33,11 @@ def isvalid_matrix_size(matrix):
     Return:
         True or False
     """
-
     if not matrix or not all(x == len(
-        matrix[0]) for x in list(map(lambda x: len(x), matrix))):
+            matrix[0]) for x in list(map(lambda x: len(x), matrix))):
         return False
     return True
+
 
 def matrix_divided(matrix, div):
     """
