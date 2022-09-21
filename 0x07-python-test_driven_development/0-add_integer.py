@@ -3,6 +3,7 @@
 # Stephen Oba <obastepheno@gmail.com>
 """module provides a function for addition"""
 
+
 def add_integer(a, b=98):
     """
     Add to numbers
@@ -22,7 +23,3 @@ def add_integer(a, b=98):
     if type(b) not in [int, float]:
         raise TypeError("b must be an integer")
     return round(a + b)
-
-if __name__ == "__main__":
-    import doctest
-    doctest.testfile("tests/0-add_integer.txt")
