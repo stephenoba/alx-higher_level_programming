@@ -37,6 +37,12 @@ class TestMaxInteger(unittest.TestCase):
         li = []
         self.assertEqual(max_integer(li), None)
 
+    def test_max_integer_one_integer(self):
+        """Test max integer with just one element
+        """
+        li = [9]
+        self.assertEqual(max_integer(li), 9)
+
     def test_max_integer_positive_negetive_integers(self):
         """Test max integer with a list of positive and negative
         integers
