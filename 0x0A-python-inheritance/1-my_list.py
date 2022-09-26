@@ -7,6 +7,10 @@
 
 class MyList(list):
     """Class inherits from python list class
+
+    METHODS
+    -------
+    print_sorted
     """
     def print_sorted(self):
         """Prints a sorted list
