@@ -1,4 +1,4 @@
-#!/usr/bin/pyhton3
+#!/usr/bin/python3
 # 0-lookup.py
 # Stephen Oba <obastepheno@gmail.com>
 """Module provides a function to list available attributes
