@@ -21,5 +21,5 @@ class MyList(list):
         Return:
             None
         """
-        self.sort()
-        print(self)
+        _copy = sorted([i for i in self])
+        print(_copy)
