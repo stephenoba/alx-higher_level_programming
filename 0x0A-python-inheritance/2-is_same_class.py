@@ -6,8 +6,8 @@
 
 
 def is_same_class(obj, a_class):
-    """Function checks if the object is exactly an instance of the 
-    specified class 
+    """Function checks if the object is exactly an instance of the
+    specified class
 
     Args:
         obj (Any): Object
@@ -16,4 +16,4 @@ def is_same_class(obj, a_class):
     Return:
         True if same class or False if not
     """
-    return obj.__class__  == a_class
+    return obj.__class__ == a_class
