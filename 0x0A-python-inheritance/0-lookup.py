@@ -5,6 +5,7 @@
 and methods in a class
 """
 
+
 def lookup(obj):
     """List available attributes and methods in an object
 
