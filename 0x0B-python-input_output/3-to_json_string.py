@@ -15,5 +15,4 @@ def to_json_string(my_obj):
     Return:
         Json representation of my_obj
     """
-    string = json.loads(my_obj)
-    return string
+    return json.dumps(my_obj)
