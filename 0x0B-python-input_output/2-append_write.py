@@ -5,7 +5,7 @@
 """
 
 
-def write_file(filename="", text=""):
+def append_write(filename="", text=""):
     """Append to a file
 
     Args:
