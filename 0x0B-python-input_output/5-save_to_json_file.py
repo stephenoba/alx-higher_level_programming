@@ -1,6 +1,8 @@
 #!/usr/bin/python3
 # 5-save_to_json_file.py
 # Stephen Oba <obastepheno@gmail.com>
+"""Module defines function to write object to JSON file
+"""
 import json
 
 
