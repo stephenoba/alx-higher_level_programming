@@ -521,3 +521,7 @@ class TestRectangle_stdout(unittest.TestCase):
         r = Rectangle(5, 1, 2, 4, 7)
         with self.assertRaises(TypeError):
             r.display(1)
+
+
+if __name__ == "__main__":
+    unittest.main()

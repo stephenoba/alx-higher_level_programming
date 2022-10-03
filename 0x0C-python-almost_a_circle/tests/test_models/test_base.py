@@ -24,3 +24,7 @@ class TestBase(unittest.TestCase):
         """Test id when passed to class"""
         b = Base(12)
         self.assertEqual(b.id, 12)
+
+
+if __name__ == "__main__":
+    unittest.main()
