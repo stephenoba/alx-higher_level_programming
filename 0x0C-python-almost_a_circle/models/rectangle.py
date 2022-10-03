@@ -15,6 +15,7 @@ class Rectangle(Base):
     -------
         area(self)
         display(self)
+        update(self, *args)
     """
     def __init__(self, width, height, x=0, y=0, id=None):
         """Initialize a rectangle object
@@ -120,3 +121,18 @@ class Rectangle(Base):
                 self.__width,
                 self.__height
         )
+
+    def update(self, *args):
+        """Update the values of rectangle
+
+        Args:
+            *args (list):
+                1st argument should be the id attribute
+                2nd argument should be the width attribute
+                3rd argument should be the height attribute
+                4th argument should be the x attribute
+                5th argument should be the y attribute
+        """
+        attrs = ['id', 'width', 'height', 'x', 'y']
+        for attr, val in zip(attrs, args):
+            setattr(self, attr, val)
