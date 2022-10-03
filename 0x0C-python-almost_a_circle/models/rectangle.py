@@ -122,7 +122,7 @@ class Rectangle(Base):
                 self.__height
         )
 
-    def update(self, *args):
+    def update(self, *args, **kwargs):
         """Update the values of rectangle
 
         Args:
@@ -132,7 +132,14 @@ class Rectangle(Base):
                 3rd argument should be the height attribute
                 4th argument should be the x attribute
                 5th argument should be the y attribute
+            **kwargs (dict): key/value pair
         """
         attrs = ['id', 'width', 'height', 'x', 'y']
-        for attr, val in zip(attrs, args):
-            setattr(self, attr, val)
+        if len(args) > 0:
+            for attr, val in zip(attrs, args):
+                setattr(self, attr, val)
+        else:
+            for k, v in kwargs.items():
+                if k not in attrs:
+                    continue
+                setattr(self, k, v)
