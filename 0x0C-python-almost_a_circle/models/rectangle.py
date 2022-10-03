@@ -11,11 +11,10 @@ __all__ = ['Rectangle']
 class Rectangle(Base):
     """Class to create rectangle objects
 
-    Attributes
-    ----------
-
     Methods
     -------
+        area(self)
+        display(self)
     """
     def __init__(self, width, height, x=0, y=0, id=None):
         """Initialize a rectangle object
@@ -91,3 +90,33 @@ class Rectangle(Base):
         if value < 0:
             raise ValueError("y must be >= 0")
         self.__y = value
+
+    def area(self):
+        """Compute the area of rectangle
+        """
+        return self.__width * self.__height
+
+    def display(self):
+        """display a rectangle with '#' character
+        """
+        if self.__height == 0 and self.__height == 0:
+            print("")
+            return
+        [print("") for i in range(self.__y)]
+        for x in range(self.__height):
+            [print(" ", end="") for i in range(self.__x)]
+            [print("#", end="") for i in range(self.__width)]
+            print("")
+
+    def __str__(self):
+        """string representation of rectangle
+        """
+        _str = "[{}] ({}) {}/{} - {}/{}"
+        return _str.format(
+                self.__class__.__name__,
+                self.id,
+                self.__x,
+                self.__y,
+                self.__width,
+                self.__height
+        )
