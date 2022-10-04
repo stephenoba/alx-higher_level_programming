@@ -62,6 +62,9 @@ class Base:
             creates a json file
         """
         filename = "{}.json".format(cls.__name__)
-        _list = list(map(lambda x: x.to_dictionary(), list_objs))
+        if list_objs is None:
+            _list = []
+        else:
+            _list = list(map(lambda x: x.to_dictionary(), list_objs))
         with open(filename, 'w', encoding='utf-8') as f:
             f.write(cls.to_json_string(_list))
