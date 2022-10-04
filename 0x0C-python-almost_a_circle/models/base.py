@@ -167,7 +167,7 @@ class Base:
             list_squares (list): A list of Square objects to draw.
         """
         tur = turtle.Turtle()
-        tur.screen.bgcolor("#b7312c")
+        tur.screen.bgcolor("#000000")
         tur.pensize(3)
         tur.shape("turtle")
 
@@ -184,7 +184,7 @@ class Base:
                 tur.left(90)
             tur.hideturtle()
 
-        tur.color("#b5e3d8")
+        tur.color("#b4d3d1")
         for sq in list_squares:
             tur.showturtle()
             tur.up()
