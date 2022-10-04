@@ -3,6 +3,7 @@
 # Stephen Oba <obastepheno@gmail.com>
 """Module containing Base class
 """
+import json
 
 
 class Base:
@@ -35,3 +36,10 @@ class Base:
             self.id = Base.__no_objects
         else:
             self.id = id
+
+    @staticmethod
+    def to_json_string(list_dictionaries):
+        """Json representation of list_dictionaries"""
+        if not list_dictionaries:
+            return "[]"
+        return json.dumps(list_dictionaries)
