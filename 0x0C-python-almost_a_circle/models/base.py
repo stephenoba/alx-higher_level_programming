@@ -101,3 +101,15 @@ class Base:
             _obj = cls(1)
         _obj.update(**dictionary)
         return _obj
+
+    @classmethod
+    def load_from_file(cls):
+        """Create objects from file
+        """
+        filename = "{}.json".format(cls.__name__)
+        try:
+            with open(filename, 'r' encoding='utf-8') as f:
+                _list = cls.from_json_string(f.read())
+                return list(map(lambda x: cls.create(**x), _list))
+        except IOError:
+            return []
