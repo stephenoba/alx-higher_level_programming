@@ -108,7 +108,7 @@ class Base:
         """
         filename = "{}.json".format(cls.__name__)
         try:
-            with open(filename, 'r' encoding='utf-8') as f:
+            with open(filename, 'r', encoding='utf-8') as f:
                 _list = cls.from_json_string(f.read())
                 return list(map(lambda x: cls.create(**x), _list))
         except IOError:
