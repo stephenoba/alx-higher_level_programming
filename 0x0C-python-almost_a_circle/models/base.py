@@ -95,6 +95,9 @@ class Base:
         """
         if not dictionary:
             return None
-        _obj = cls(1, 1)
+        if cls.__name__ == "Rectangle":
+            _obj = cls(1, 1)
+        else:
+            _obj = cls(1)
         _obj.update(**dictionary)
         return _obj
