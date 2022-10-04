@@ -146,7 +146,7 @@ class TestBase_to_json_string(unittest.TestCase):
 class TestBase_save_to_file(unittest.TestCase):
     """Unittests for testing save_to_file method of Base class."""
 
-    @classmethod
+    # @classmethod
     def tearDown(self):
         """Delete any created files."""
         try:
@@ -330,7 +330,7 @@ class TestBase_create(unittest.TestCase):
 class TestBase_load_from_file(unittest.TestCase):
     """Unittests for testing load_from_file_method of Base class."""
 
-    @classmethod
+    # @classmethod
     def tearDown(self):
         """Delete any created files."""
         try:
@@ -396,7 +396,7 @@ class TestBase_load_from_file(unittest.TestCase):
 class TestBase_save_to_file_csv(unittest.TestCase):
     """Unittests for testing save_to_file_csv method of Base class."""
 
-    @classmethod
+    # @classmethod
     def tearDown(self):
         """Delete any created files."""
         try:
@@ -474,7 +474,7 @@ class TestBase_save_to_file_csv(unittest.TestCase):
 class TestBase_load_from_file_csv(unittest.TestCase):
     """Unittests for testing load_from_file_csv method of Base class."""
 
-    @classmethod
+    # @classmethod
     def tearDown(self):
         """Delete any created files."""
         try:
