@@ -82,3 +82,19 @@ class Base:
             _list = list(map(lambda x: x.to_dictionary(), list_objs))
         with open(filename, 'w', encoding='utf-8') as f:
             f.write(cls.to_json_string(_list))
+
+    @classmethod
+    def create(cls, **dictionary):
+        """Create an object from dictionary
+
+        Args:
+            dictionary (dict): key word arguments to create object
+
+        Return:
+            instance
+        """
+        if not dictionary:
+            return None
+        _obj = cls(1, 1)
+        _obj.update(**dictionary)
+        return _obj
