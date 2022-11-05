@@ -2,8 +2,8 @@
 -- database hbtn_0d_tvshows
 SELECT		title, name
 FROM		tv_shows AS ts
-INNER JOIN	tv_show_genres as tsg
+INNER JOIN	tv_show_genres AS tsg
 ON		(ts.id = tsg.show_id)
-INNER JOIN	tv_genres as tg
+INNER JOIN	tv_genres AS tg
 ON		(tg.id = tsg.genre_id)
 ORDER BY	title, name;
