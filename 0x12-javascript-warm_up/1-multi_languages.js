@@ -2,8 +2,8 @@
 
 const cIsFun = 'C is Fun';
 const python = 'Python is cool';
-const javascript = 'Javascript is amazing';
+const javaScript = 'JavaScript is amazing';
 
 console.log(cIsFun);
 console.log(python);
-console.log(javascript);
+console.log(javaScript);
