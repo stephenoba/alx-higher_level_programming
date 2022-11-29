@@ -9,7 +9,7 @@ const convElements = (ele) => {
     res = 0;
   }
   return res;
-}
+};
 
 if (args.length > 2) {
   numbers = numbers.map(convElements);
