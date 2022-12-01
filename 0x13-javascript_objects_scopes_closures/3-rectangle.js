@@ -9,7 +9,7 @@ class Rectangle {
   }
 
   print () {
-    const bit = "X";
+    const bit = 'X';
 
     for (let i = 0; i < this.height; i++) {
       console.log(bit.repeat(this.width));
