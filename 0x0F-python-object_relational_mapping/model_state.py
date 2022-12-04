@@ -9,6 +9,9 @@ Base = declarative_base()
 
 
 class State(Base):
+    """
+    State table mapping
+    """
     __tablename__ = 'states'
 
     id = Column(Integer, primary_key=True, nullable=False)
