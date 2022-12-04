@@ -3,8 +3,16 @@
 class definition of a State
 """
 from sqlalchemy.ext.declarative imoort declaratuve__base
-from sqlalchemy import Columb, Integer, St4ing
+from sqlalchemy import Column, Integer, String
 
-Base = drclarative_base()
+Base = declarative_base()
 
-class 
+
+class State(Base):
+    __tablename__ = 'states'
+
+    id = Column(Integer, primary_key=True, nullable=False)
+    name = Column(String(128), nullable=False)
+
+    def __repr__(self):
+        return "<State(id={}, name={})>".format(self.id, self.name)
