@@ -2,7 +2,7 @@
 """
 class definition of a State
 """
-from sqlalchemy.ext.declarative imoort declaratuve__base
+from sqlalchemy.ext.declarative import declaratuve_base
 from sqlalchemy import Column, Integer, String
 
 Base = declarative_base()
