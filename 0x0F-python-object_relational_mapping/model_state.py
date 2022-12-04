@@ -18,4 +18,7 @@ class State(Base):
     name = Column(String(128), nullable=False)
 
     def __repr__(self):
+        """
+        model representation"
+        """
         return "<State(id={}, name={})>".format(self.id, self.name)
