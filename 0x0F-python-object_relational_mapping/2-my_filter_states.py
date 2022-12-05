@@ -5,7 +5,8 @@ whose name matches that supplied as argument.
 Usage: ./2-my_filter_states.py <mysql username> \
                                <mysql password> \
                                <database name> \
-"""                               <state name searched>
+                               <state name searched>
+"""
 import sys
 import MySQLdb
 
