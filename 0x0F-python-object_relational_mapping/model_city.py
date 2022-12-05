@@ -17,7 +17,7 @@ class City(Base):
     name = Column(String(128), nullable=False)
     state_id = Column(
             Integer,
-            Foreignley('states.id'),
+            ForeignKey('states.id'),
             nullable=False)
 
     def __repr__(self):
