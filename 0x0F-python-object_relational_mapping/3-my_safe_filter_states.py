@@ -1,7 +1,7 @@
+#!/usr/bin/python3
 """
 Safe filter to prevent SQL Injection
 """
-
 import sys
 import MySQLdb
 
