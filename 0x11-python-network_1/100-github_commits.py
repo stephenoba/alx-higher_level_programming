@@ -14,7 +14,7 @@ if __name__ == "__main__":
     owner = sys.argv[2]
 
     try:
-        url = url.format(repo, owner)
+        url = url.format(owner, repo)
         r = requests.get(url)
         r.raise_for_status()
         content = r.json()
