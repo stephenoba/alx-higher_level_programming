@@ -14,6 +14,6 @@ if __name__ == "__main__":
         with urlopen(req) as res:
             content = res.read()
     except HTTPError as e:
-        print(e.code)
+        print("Error code: {}".format(e.code))
     else:
         print(content.decode('UTF-8'))
