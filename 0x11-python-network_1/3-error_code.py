@@ -11,9 +11,9 @@ if __name__ == "__main__":
     url = sys.argv[1]
     req = Request(url)
     try:
-        res = urlopen(req)
+        with urlopen(req) as res:
+            content = res.read()
     except HTTPError as e:
         print(e.code)
     else:
-        content = res.read()
         print(content.decode('UTF-8'))
