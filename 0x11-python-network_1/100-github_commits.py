@@ -24,5 +24,5 @@ if __name__ == "__main__":
         for commit in content:
             output = "{}: {}"
             sha = commit["sha"]
-            committer = commit["commit"]["committer"]["name"]
+            committer = commit["commit"]["author"]["name"]
             print(output.format(sha, committer))
