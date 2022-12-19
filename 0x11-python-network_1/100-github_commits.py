@@ -10,19 +10,16 @@ if __name__ == "__main__":
     from requests.exceptions import HTTPError
 
     url = 'https://api.github.com/repos/{}/{}/commits'
-    headers = {
-            'Authorization': 'Bearer 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',
-            }
     repo = sys.argv[1]
     owner = sys.argv[2]
 
     try:
         url = url.format(repo, owner)
-        r = requests.get(url, headers=headers)
+        r = requests.get(url)
         r.raise_for_status()
         content = r.json()
-    except (HTTPError, ValueError):
-        print(None)
+    except (HTTPError, ValueError) as e:
+        pass
     else:
         for commit in content:
             output = "{}: {}"
